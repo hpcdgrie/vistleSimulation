@@ -1,10 +1,10 @@
-cmake_minimum_required(VERSION 3.17)
-project(UpstreamLib)
+cmake_minimum_required(VERSION 3.14)
+project(VistleSImulation)
 
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 set(CMAKE_INCLUDE_CURRENT_DIR_IN_INTERFACE ON)
 
-set(Upstream_VERSION 3.4.1)
+
 
 
 find_package(vistle_sensei REQUIRED)
