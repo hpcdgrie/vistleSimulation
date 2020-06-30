@@ -14,7 +14,7 @@ struct Test {
 	}
 };
 
-int main(const int* argc, char**argv){
+int main(int argc, char* argv[]){
 
 	Test t;
 	std::function<void()>add = std::bind(&Test::add, &t);
@@ -23,7 +23,7 @@ int main(const int* argc, char**argv){
 		add();
 	}
 	std::cerr << " t.t = " << t.t << std::endl;
-	MPI_Init(argc, &argv);
+	MPI_Init(&argc, &argv);
 	std::cerr << "hello world" << std::endl;
 	Simulation sim;
 	sim.intitMesh();
