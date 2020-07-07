@@ -5,6 +5,8 @@
 #include <insitu/sensei/multiGrid.h>
 #include <insitu/sensei/unstructuredGrid.h>
 
+#include <core/unstr.h>
+#include <core/archives.h>
 
 using namespace vistle::insitu::sensei;
 using namespace vistle::insitu;
@@ -99,8 +101,9 @@ Grid Simulation::createMesh(const std::string& name, double xOffset, double yOff
 	vistle::Index* el = elArray.dataAs<vistle::Index>();
 	vistle::Byte* tl = tlArray.dataAs<vistle::Byte>();
 
-	/*unsigned type = vistle::UnstructuredGrid::POINT;
-	if (dim[2] > 1) {
+	unsigned type = vistle::UnstructuredGrid::POINT;
+
+	/*if (dim[2] > 1) {
 		type = UnstructuredGrid::HEXAHEDRON;
 	}
 	else if (dim[1] > 1) {

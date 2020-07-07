@@ -6,9 +6,8 @@
 #include <mpi.h>
 #include <iostream>
 
-#include <yas/types/std/pair.hpp>
 
-//using namespace vistle::insitu;
+using namespace vistle::insitu;
 
 struct Test {
 	int t = 0;
@@ -19,7 +18,7 @@ struct Test {
 
 int main(int argc, char* argv[]){
 
-	/*Test t;
+	Test t;
 	std::function<void()>add = std::bind(&Test::add, &t);
 	for (size_t i = 0; i < 3; i++)
 	{
@@ -42,6 +41,6 @@ int main(int argc, char* argv[]){
 
 	}
 	vistleSensei->Finalize();
-	MPI_Finalize();*/
+	MPI_Finalize();
 
 }
