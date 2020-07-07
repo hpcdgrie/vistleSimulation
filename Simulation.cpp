@@ -4,7 +4,7 @@
 #include <cassert>
 #include <insitu/sensei/multiGrid.h>
 #include <insitu/sensei/unstructuredGrid.h>
-#include <core/unstr.h>
+
 
 using namespace vistle::insitu::sensei;
 using namespace vistle::insitu;
@@ -81,7 +81,7 @@ Grid Simulation::createMesh(const std::string& name, double xOffset, double yOff
 			}
 		}
 	}
-	auto grid = std::make_unique<vistle::insitu::sensei::UnstructuredMesh>(name, std::move(arrays), dims);
+	auto grid = std::make_unique<vistle::insitu::sensei::StructuredGrid>(name, std::move(arrays), dims);
 
 	size_t numElem = 1;
 	for (size_t i = 0; i < 3; i++)

@@ -1,11 +1,14 @@
-#include <iostream>
+#include "Simulation.h"
+
 #include <insitu/sensei/senseiInterface.h>
 #include <insitu/sensei/gridInterface.h>
 
 #include <mpi.h>
-#include "Simulation.h"
+#include <iostream>
 
-using namespace vistle::insitu;
+#include <yas/types/std/pair.hpp>
+
+//using namespace vistle::insitu;
 
 struct Test {
 	int t = 0;
@@ -16,7 +19,7 @@ struct Test {
 
 int main(int argc, char* argv[]){
 
-	Test t;
+	/*Test t;
 	std::function<void()>add = std::bind(&Test::add, &t);
 	for (size_t i = 0; i < 3; i++)
 	{
@@ -39,6 +42,6 @@ int main(int argc, char* argv[]){
 
 	}
 	vistleSensei->Finalize();
-	MPI_Finalize();
+	MPI_Finalize();*/
 
 }
