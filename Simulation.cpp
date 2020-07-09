@@ -77,7 +77,7 @@ vistle::Object::ptr Simulation::getMesh(const std::string& name) const
 	}
 
 
-	vistle::Object::ptr grid = createMesh(name, 0, 0, 0);
+	return createMesh(name, 0, 0, 0);
 
 }
 
