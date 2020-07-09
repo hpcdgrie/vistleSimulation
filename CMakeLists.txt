@@ -16,6 +16,6 @@ target_link_libraries(VistleSimulation
 	PRIVATE Vistle::vistle_sensei
 	PRIVATE MPI::MPI_C
 	)
-include_directories("H:/src/vistle/3rdparty/yas/include")
-message("BOOST_LOCATION = " ${BOOST_LOCATION})
-message("BOOST_INCLUDE_DIRECTORIES = " ${BOOST_INCLUDE_LOCATION})
+#include_directories("H:/src/vistle/3rdparty/yas/include")
+#message("BOOST_LOCATION = " ${BOOST_LOCATION})
+#message("BOOST_INCLUDE_DIRECTORIES = " ${BOOST_INCLUDE_LOCATION})
