@@ -38,7 +38,6 @@ void Simulation::run() {
 	cerr << "start running" << endl;
 	while (m_adapter->Execute(nextStep()))
 	{
-
 	}
 }
 
