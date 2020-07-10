@@ -1,9 +1,7 @@
 #pragma once
-#include <insitu/sensei/senseiInterface.h>
-#include <insitu/sensei/structuredGrid.h>
-#include <core/object.h>
-#include <core/database.h>
-#include <insitu/sensei/senseiImpl.h>
+
+#include <insitu/sensei/sensei.h>
+
 class Simulation
 {
 public:

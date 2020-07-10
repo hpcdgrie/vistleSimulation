@@ -1,8 +1,5 @@
 #include "Simulation.h"
 
-#include <insitu/sensei/senseiInterface.h>
-#include <insitu/sensei/gridInterface.h>
-
 #include <mpi.h>
 #include <iostream>
 

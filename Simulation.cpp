@@ -1,17 +1,12 @@
 #include "Simulation.h"
 
-#include <iostream>
-#include <cassert>
-#include <insitu/sensei/multiGrid.h>
-#include <insitu/sensei/unstructuredGrid.h>
-#include <insitu/core/transformArray.h>
-
 #include <core/unstr.h>
-#include <core/archives.h>
 #include <core/uniformgrid.h>
 #include <core/structuredgrid.h>
 #include <core/rectilineargrid.h>
 
+#include <iostream>
+#include <cassert>
 #include <algorithm>
 
 using namespace vistle::insitu::sensei;
@@ -109,75 +104,6 @@ vistle::Object::ptr Simulation::createMesh(const std::string& name, double xOffs
 	}
 	return grid;
 }
-
-
-vistle::Object::ptr Simulation::makeUnstr(const std::string& name)
-{
-	using namespace vistle;
-	const size_t nx = std::max(dims[0] - 1, size_t(1));
-	const size_t ny = std::max(dims[1] - 1, size_t(1));
-	const size_t nz = std::max(dims[2] - 1, size_t(1));
-	size_t numElem = nx * ny * nz;
-	size_t numCellVert = 8;
-	auto clArray = Array::create<vistle::Index>(name, numElem * numCellVert);
-	auto elArray = Array::create<vistle::Index>(name, numElem);
-	auto tlArray = Array::create<vistle::Byte>(name, numElem);
-
-	vistle::Index elem = 0;
-	vistle::Index idx = 0;
-	vistle::Index* cl = clArray.dataAs<vistle::Index>();
-	vistle::Index* el = elArray.dataAs<vistle::Index>();
-	vistle::Byte* tl = tlArray.dataAs<vistle::Byte>();
-
-	unsigned type = UnstructuredGrid::HEXAHEDRON;
-	return nullptr;
-
-	//for (size_t ix = 0; ix < nx; ++ix) {
-	//	for (size_t iy = 0; iy < ny; ++iy) {
-	//		for (size_t iz = 0; iz < nz; ++iz) {
-	//			cl[idx++] = UniformGrid::vertexIndex(ix, iy, iz, dims.data());
-	//			if (dims[0] > 1) {
-	//				cl[idx++] = UniformGrid::vertexIndex(ix + 1, iy, iz, dims.data());
-	//				if (dims[1] > 1) {
-	//					cl[idx++] = UniformGrid::vertexIndex(ix + 1, iy + 1, iz, dims.data());
-	//					cl[idx++] = UniformGrid::vertexIndex(ix, iy + 1, iz, dims.data());
-	//					if (dims[2] > 1) {
-	//						cl[idx++] = UniformGrid::vertexIndex(ix, iy, iz + 1, dims.data());
-	//						cl[idx++] = UniformGrid::vertexIndex(ix + 1, iy, iz + 1, dims.data());
-	//						cl[idx++] = UniformGrid::vertexIndex(ix + 1, iy + 1, iz + 1, dims.data());
-	//						cl[idx++] = UniformGrid::vertexIndex(ix, iy + 1, iz + 1, dims.data());
-	//					}
-	//				}
-	//			}
-
-	//			tl[elem] = type;
-	//			/*				if ((ix < ghostWidth[0][0] || ix + ghostWidth[0][1] >= nx)
-	//								|| (iy < ghostWidth[1][0] || iy + ghostWidth[1][1] >= ny)
-	//								|| (iz < ghostWidth[2][0] || iz + ghostWidth[2][1] >= nz)) {
-	//								tl[elem] |= UnstructuredGrid::GHOST_BIT;
-	//							*/
-	//		}
-
-	//		++elem;
-	//		el[elem] = idx;
-	//	}
-	//}
-
-	//auto grid = std::make_unique<insitu::sensei::UnstructuredMesh>(name);
-	//grid->cl = std::move(clArray);
-	//grid->el = std::move(elArray);
-	//grid->tl = std::move(tlArray);
-	//grid->clToVistle = [](Index* vistleCL, const Array& myCL)->bool {
-	//	vistle::insitu::transformArray(myCL, vistleCL);
-	//	return true; };
-	//grid->elToVistle = [](Index* vistleCL, const Array& myCL)->bool {
-	//	vistle::insitu::transformArray(myCL, vistleCL);
-	//	return true; };
-	//grid->tlToVistle = [](Byte* vistleCL, const Array& myCL)->bool {
-	//	vistle::insitu::transformArray(myCL, vistleCL);
-	//	return true; };
-}
-
 
 
 vistle::DataBase::ptr Simulation::getVar(const std::string& name) const
